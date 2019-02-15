@@ -1,0 +1,20 @@
+---
+- hosts: all
+  connection: local
+
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ ansible_os_family }}.yml"
+        - default.yml
+      tags: [always]
+
+  roles:
+    - role: geerlingguy.homebrew
+      tags: [homebrew]
+
+  tasks:
+    - include_tasks: tasks/ansible-setup.yml
+    - include_tasks: tasks/ssh-setup.yml
+    - include_tasks: tasks/git-setup.yml
+    - include_tasks: tasks/yadr-setup.yml

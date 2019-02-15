@@ -1,0 +1,63 @@
+---
+downloads: ~/.ansible-downloads/
+
+configure_dotfiles: yes
+configure_sudoers: yes
+configure_terminal: yes
+configure_osx: yes
+
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - autoconf
+  - bash-completion
+  - dep
+  - direnv
+  - git
+  - go
+  - gpg
+  - hub
+  - httpie
+  - iperf
+  - libevent
+  - nmap
+  - node
+  - ssh-copy-id
+  - readline
+  - openssl
+  - pv
+  - rbenv
+  - ruby-build
+  - watch
+  - wget
+  - wrk
+  - xhyve
+  - zsh
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - 1password
+  - chromedriver
+  - docker
+  - dropbox
+  - firefox
+  - goland
+  - google-chrome
+  - google-cloud-sdk
+  - handbrake
+  - licecap
+  - macvim
+  - meld
+  - postman
+  - quicksilver
+  - rescuetime
+  - slack
+  - spotify
+  - steam
+  - steamcmd
+  - sublime-text
+  - vagrant
+  - visual-studio-code

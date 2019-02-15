@@ -1,0 +1,30 @@
+---
+- name: clone yadr
+  git:
+    repo: git@github.com:petemounce/yadr.git
+    dest: "{{ ansible_user_dir }}/.yadr"
+    version: petemounce
+
+- name: install yadr
+  shell: rake install
+  args:
+    chdir: "{{ ansible_user_dir }}/.yadr"
+
+- name: delete defaults
+  file:
+    state: absent
+    path: "{{ item }}"
+  with_items:
+    - "{{ ansible_user_dir }}/.zsh.before"
+    - "{{ ansible_user_dir }}/.zsh.after"
+    - "{{ ansible_user_dir }}/.zsh.prompts"
+
+- name: symlink in dropbox
+  file:
+    state: link
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - {src: "{{ ansible_user_dir }}/Dropbox/profiles/osx/.zsh.before", dest: "{{ ansible_user_dir }}/.zsh.before"}
+    - {src: "{{ ansible_user_dir }}/Dropbox/profiles/osx/.zsh.after", dest: "{{ ansible_user_dir }}/.zsh.after"}
+    - {src: "{{ ansible_user_dir }}/Dropbox/profiles/osx/.zsh.prompts", dest: "{{ ansible_user_dir }}/.zsh.prompts"}
