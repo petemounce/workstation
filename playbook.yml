@@ -2,11 +2,15 @@
 - hosts: all
   connection: local
 
+  vars_files:
+    - vars/default.yml  # overridden by include_vars below
+    - vars/improbable.yml
+
   pre_tasks:
     - include_vars: "{{ item }}"
       with_first_found:
-        - "{{ ansible_os_family }}.yml"
-        - default.yml
+        - vars/{{ ansible_os_family }}.yml
+        - vars/default.yml
       tags: [always]
 
   roles:
@@ -14,7 +18,11 @@
       tags: [homebrew]
 
   tasks:
-    - include_tasks: tasks/ansible-setup.yml
-    - include_tasks: tasks/ssh-setup.yml
-    - include_tasks: tasks/git-setup.yml
-    - include_tasks: tasks/yadr-setup.yml
+    - import_tasks: tasks/ansible-setup.yml
+      tags: [ansible]
+    - import_tasks: tasks/ssh-setup.yml
+      tags: [ssh]
+    - import_tasks: tasks/git-setup.yml
+      tags: [git]
+    - import_tasks: tasks/shell-setup.yml
+      tags: [shell]

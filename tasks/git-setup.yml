@@ -1,1 +1,10 @@
 ---
+- name: make gitconfig
+  template:
+    src: gitconfig.j2
+    dest: "{{ ansible_user_dir }}/.gitconfig"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ user_group }}"
+    mode: 0600
+
+# TODO: https://docs.ansible.com/ansible/latest/modules/git_config_module.html#git-config-module

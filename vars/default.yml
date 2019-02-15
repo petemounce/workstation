@@ -45,7 +45,7 @@ homebrew_cask_apps:
   - dropbox
   - firefox
   - goland
-  - google-chrome
+  # - google-chrome
   - google-cloud-sdk
   - handbrake
   - licecap
