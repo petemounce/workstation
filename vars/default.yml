@@ -25,12 +25,15 @@ homebrew_installed_packages:
   - readline
   - openssl
   - pv
+  - pyenv
   - rbenv
+  - readline
   - ruby-build
   - watch
   - wget
   - wrk
   - xhyve
+  - xv
   - zsh
 
 homebrew_taps:

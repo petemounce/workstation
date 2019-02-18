@@ -1,14 +1,15 @@
 ---
 - name: clone yadr
   git:
-    repo: git@github.com:petemounce/yadr.git
+    repo: git@github.com:petemounce/dotfiles.git
     dest: "{{ ansible_user_dir }}/.yadr"
-    version: petemounce
+    version: pete
 
 - name: install yadr
-  shell: rake install
+  command: rake install
   args:
     chdir: "{{ ansible_user_dir }}/.yadr"
+    creates: "{{ ansible_user_dir }}/.tmux.conf"
 
 - name: delete defaults
   file:
@@ -28,3 +29,13 @@
     - {src: "{{ ansible_user_dir }}/Dropbox/profiles/osx/.zsh.before", dest: "{{ ansible_user_dir }}/.zsh.before"}
     - {src: "{{ ansible_user_dir }}/Dropbox/profiles/osx/.zsh.after", dest: "{{ ansible_user_dir }}/.zsh.after"}
     - {src: "{{ ansible_user_dir }}/Dropbox/profiles/osx/.zsh.prompts", dest: "{{ ansible_user_dir }}/.zsh.prompts"}
+
+- name: fix vim shell prompt
+  file:
+    state: absent
+    path: "{{ ansible_user_dir }}/.inputrc"
+
+- name: shell aliases
+  template:
+    src: dot-aliases.j2
+    dest: "{{ ansible_user_dir }}/.aliases"
