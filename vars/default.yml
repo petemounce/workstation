@@ -33,7 +33,7 @@ homebrew_installed_packages:
   - wget
   - wrk
   - xhyve
-  - xv
+  - xz
   - zsh
 
 homebrew_taps:
@@ -51,9 +51,11 @@ homebrew_cask_apps:
   # - google-chrome
   - google-cloud-sdk
   - handbrake
+  - java8
   - licecap
   - macvim
   - meld
+  - minikube
   - postman
   - quicksilver
   - rescuetime
