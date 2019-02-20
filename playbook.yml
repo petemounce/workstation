@@ -29,3 +29,5 @@
       tags: [git]
     - import_tasks: tasks/config-setup.yml
       tags: [config]
+    - import_tasks: tasks/kube.yml
+      tags: [kube, kubernetes]
