@@ -18,6 +18,7 @@ homebrew_installed_packages:
   - hub
   - httpie
   - iperf
+  - kubernetes-cli
   - libevent
   - nmap
   - node
@@ -43,6 +44,7 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - 1password
+  - balenaetcher
   - chromedriver
   - docker
   - dropbox
