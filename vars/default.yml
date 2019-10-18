@@ -108,6 +108,7 @@ homebrew_cask_apps:
   - charles
   - chromedriver
   - controlplane
+  - datagrip
   - docker
   - dropbox
   - firefox
