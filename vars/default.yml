@@ -115,12 +115,12 @@ homebrew_cask_apps:
   # - google-chrome
   - google-cloud-sdk
   - handbrake
-  - java8
+  # - java8
   - joplin
   - licecap
   - macvim
   - meld
-  - microsoft-remote-desktop-beta
+  # - microsoft-remote-desktop-beta
   - minikube
   - p4v
   - postman
