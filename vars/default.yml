@@ -83,7 +83,6 @@ homebrew_installed_packages:
   - sqlite
   - sqlmap
   - ssh-copy-id
-  - sshpass
   - tfenv
   - the_silver_searcher
   - tmux
