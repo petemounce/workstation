@@ -7,35 +7,94 @@ configure_terminal: yes
 configure_osx: yes
 
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
+  - adns
   - autoconf
+  - automake
+  - awscli
   - bash-completion
+  - bison
+  - buildkite-agent
+  - cmake
+  - coreutils
+  - ctags
   - direnv
+  - docker-compose
+  - docker-compose-completion
+  - gdbm
+  - gettext
+  - ghi
   - git
   - git-crypt
-  # - go # not at work because puppet
-  - gpg
-  - hub
+  - gmp
+  - gnu-sed
+  - gnupg
+  - gnutls
+  - go
+  - hashcat
   - httpie
+  - hub
+  - hugo
+  - icu4c
   - iperf
+  - jq
+  - jsonnet
   - kubernetes-cli
+  - libassuan
   - libevent
+  - libffi
+  - libgcrypt
+  - libgpg-error
+  - libidn2
+  - libksba
+  - libressl
+  - libtasn1
+  - libunistring
+  - libusb
+  - libyaml
+  - llvm@4
+  - md5sha1sum
+  - mysql
+  - ncurses
+  - nettle
   - nmap
   - node
-  - ssh-copy-id
-  - readline
+  - npth
+  - nvm
+  - oniguruma
   - openssl
+  - openssl@1.1
+  - p11-kit
+  - packer
+  - parallel
+  - pcre
+  - pcre2
+  - pinentry
+  - pkg-config
+  - protobuf
   - pv
   - pyenv
+  - python
+  - python@2
   - rbenv
   - readline
+  - reattach-to-user-namespace
   - ruby-build
+  - shellcheck
+  - sqlite
   - sqlmap
+  - ssh-copy-id
+  - sshpass
+  - tfenv
+  - the_silver_searcher
+  - tmux
+  - tree
+  - unbound
   - watch
   - wget
   - wrk
   - xhyve
   - xz
+  - yarn
   - zsh
 
 homebrew_taps:
@@ -46,18 +105,16 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - 1password
   - balenaetcher
+  - charles
   - chromedriver
+  - controlplane
   - docker
-  - docker-completion
-  - docker-compose
-  - docker-compose-completion
   - dropbox
   - firefox
   - goland
   # - google-chrome
   - google-cloud-sdk
   - handbrake
-  - hashcat
   - java8
   - joplin
   - licecap
@@ -65,6 +122,7 @@ homebrew_cask_apps:
   - meld
   - microsoft-remote-desktop-beta
   - minikube
+  - p4v
   - postman
   - quicksilver
   - rescuetime
@@ -74,5 +132,8 @@ homebrew_cask_apps:
   - steamcmd
   - sublime-text
   - vagrant
+  - virtualbox
   - visual-studio-code
+  - vlc
   - zoom
+  - zoomus
