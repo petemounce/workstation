@@ -19,7 +19,6 @@ homebrew_installed_packages:
   - ctags
   - direnv
   - docker-compose
-  - docker-compose-completion
   - gdbm
   - gettext
   - ghi
