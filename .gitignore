@@ -5,4 +5,5 @@
 *.sublime-workspace
 *.vagrant
 config.yml
+project.code-workspace
 roles*
