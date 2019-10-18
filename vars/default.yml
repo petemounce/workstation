@@ -10,10 +10,10 @@ homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
   - bash-completion
-  - dep
   - direnv
   - git
-  - go
+  - git-crypt
+  # - go # not at work because puppet
   - gpg
   - hub
   - httpie
@@ -30,6 +30,7 @@ homebrew_installed_packages:
   - rbenv
   - readline
   - ruby-build
+  - sqlmap
   - watch
   - wget
   - wrk
@@ -47,16 +48,22 @@ homebrew_cask_apps:
   - balenaetcher
   - chromedriver
   - docker
+  - docker-completion
+  - docker-compose
+  - docker-compose-completion
   - dropbox
   - firefox
   - goland
   # - google-chrome
   - google-cloud-sdk
   - handbrake
+  - hashcat
   - java8
+  - joplin
   - licecap
   - macvim
   - meld
+  - microsoft-remote-desktop-beta
   - minikube
   - postman
   - quicksilver
@@ -68,3 +75,4 @@ homebrew_cask_apps:
   - sublime-text
   - vagrant
   - visual-studio-code
+  - zoom
