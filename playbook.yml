@@ -12,6 +12,11 @@
         - vars/{{ ansible_os_family }}.yml
         - vars/default.yml
       tags: [always]
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars[inventory_hostname]
+      when: debug == "true"
+      tags: ["always", "debug"]
 
   roles:
     - role: geerlingguy.homebrew
