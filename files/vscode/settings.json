@@ -1,0 +1,60 @@
+{
+    "window.zoomLevel": 0,
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "explorer.confirmDelete": false,
+    "editor.renderWhitespace": "none",
+    "sync.gist": "c8e020fbb78dff154b99cdd76523f5ed",
+    "sourcegraph.url": "https://code.i8e.io",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.fontAliasing": "auto",
+    "editor.wordWrapColumn": 100,
+    "editor.wordWrap": "on",
+    "explorer.autoReveal": false,
+    "vs-kubernetes": {
+        "vs-kubernetes.kubectl-path": "/Users/petermounce/.vs-kubernetes/tools/kubectl/kubectl",
+        "vs-kubernetes.helm-path": "/Users/petermounce/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.draft-path": "/Users/petermounce/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path": "/Users/petermounce/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.minikube-path.mac": "/Users/petermounce/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "files.trimTrailingWhitespace": true,
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
+    "[yaml]": {},
+    "files.associations": {
+        "Dockerfile*": "dockerfile",
+        "OWNERS": "yaml"
+    },
+    "perforce.addOnFileCreate": true,
+    "perforce.deleteOnFileDelete": true,
+    "perforce.editOnFileSave": true,
+    "perforce.user": "petermounce",
+    "perforce.password": "",
+    "perforce.port": "ssl:perforce.corp.i8e.io:1666",
+    "buildkite.accessToken": "",
+    "buildkite.pollBuildkiteEnabled": true,
+    "go.formatTool": "goimports",
+    "terminal.integrated.rendererType": "dom",
+    "shellcheck.customArgs": [
+        "-P=ci/lib",
+        "--external-sources"
+    ],
+    "go.useLanguageServer": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "todo-tree.tree.showScanModeButton": false,
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "terraform.languageServer": {
+        "external": true,
+        "args": [
+            "serve"
+        ]
+    }
+}
