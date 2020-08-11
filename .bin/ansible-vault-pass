@@ -1,0 +1,4 @@
+#!/bin/sh
+# https://coderwall.com/p/cjiljw/use-macos-keychain-for-ansible-vault-passwords
+NAME=$(basename "$PWD" | sed -e 's/ /-/g')
+security find-generic-password -a ansible_vault_$NAME -w
