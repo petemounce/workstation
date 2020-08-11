@@ -39,6 +39,7 @@ homebrew_installed_packages:
   - jq
   - jsonnet
   - kubernetes-cli
+  - kubectx
   - libassuan
   - libevent
   - libffi
