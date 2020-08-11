@@ -12,5 +12,5 @@ macos/bootstrap.sh
 If you're happy with that set of tasks and have read what they do:
 
 ```shell
-./run.sh
+./run.sh --extra-vars debug=true
 ```
