@@ -24,6 +24,6 @@
     src: ssh_config.j2
     dest: "{{ ansible_user_dir }}/.ssh/config"
 
-- name: load keys to agent
-  command: ssh-add -K {{ item }}
-  with_items: "{{ ssh_keys }}"
+# - name: load keys to agent
+#   command: ssh-add -K {{ item }}
+#   with_items: "{{ ssh_keys }}"
