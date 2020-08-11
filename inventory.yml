@@ -1,3 +1,4 @@
+---
 localhost:
   vars:
     ansible_connection: local
