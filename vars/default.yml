@@ -21,6 +21,7 @@ homebrew_installed_packages:
   - docker-compose
   - gdbm
   - gettext
+  - gh
   - ghi
   - git
   - git-crypt
@@ -50,8 +51,8 @@ homebrew_installed_packages:
   - libunistring
   - libusb
   - libyaml
-  - llvm@4
-  - md5sha1sum
+  # - llvm@4
+  # - md5sha1sum # conflicts with coreutils
   - mysql
   - ncurses
   - nettle
@@ -68,12 +69,13 @@ homebrew_installed_packages:
   - pcre
   - pcre2
   - pinentry
+  - pinentry-mac
   - pkg-config
   - protobuf
   - pv
-  - pyenv
-  - python
-  - python@2
+  # - pyenv
+  # - python
+  # - python@2
   - rbenv
   - readline
   - reattach-to-user-namespace
@@ -112,27 +114,26 @@ homebrew_cask_apps:
   - dropbox
   - firefox
   - goland
-  # - google-chrome
+  - google-chrome
   - google-cloud-sdk
   - handbrake
-  # - java8
+  # - java8 # error
   - joplin
   - licecap
   - macvim
   - meld
-  # - microsoft-remote-desktop-beta
-  - minikube
+  # - microsoft-remote-desktop # no cask?
   - p4v
   - postman
   - quicksilver
-  - rescuetime
+  # - rescuetime # checksum mismatch
   - slack
   - spotify
   - steam
   - steamcmd
   - sublime-text
   - vagrant
-  - virtualbox
+  # - virtualbox # error
   - visual-studio-code
   - vlc
   - zoom
