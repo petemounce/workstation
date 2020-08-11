@@ -8,7 +8,7 @@ xcode-select --install || echo "xcode-select has been installed already, probabl
 sudo easy_install pip
 sudo pip install pip --upgrade
 sudo pip install "ansible==${ANSIBLE_VERSION}"
-ansible-galaxy install --role-file requirements.yml --roles-path roles
+ansible-galaxy install --role-file "requirements.yml" --roles-path "roles-external"
 
 # http://krypted.com/mac-security/mac-setting-screen-saver-from-the-cli/
 echo "Install Aerial Screensaver: https://github.com/JohnCoates/Aerial"
