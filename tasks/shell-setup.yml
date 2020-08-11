@@ -1,15 +1,50 @@
 ---
-- name: clone yadr
-  git:
-    repo: git@github.com:petemounce/dotfiles.git
-    dest: "{{ ansible_user_dir }}/.yadr"
-    version: pete
+- name: Check if YADR is installed
+  stat: 
+    path: ~/.yadr
+  register: yadr_dir
 
-- name: install yadr
-  command: rake install
+- name: download YADR
+  get_url: 
+    url: https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh
+    dest: /tmp/yadr_install.sh
+    mode: 0755
+  when: yadr_dir.stat.exists == false
+
+- name: install YADR
+  command: bash -c 'echo yes | /tmp/yadr_install.sh'
   args:
-    chdir: "{{ ansible_user_dir }}/.yadr"
-    creates: "{{ ansible_user_dir }}/.tmux.conf"
+    creates: ~/.yadr
+  when: yadr_dir.stat.exists == false
+
+# Unnecessary since Catalina made zsh default
+- name: Set the user shell to zsh
+  when: ansible_os_family == 'Darwin'
+  user: 
+    name: "{{ ansible_ssh_user }}"
+    shell: /bin/zsh
+  become: true
+
+- name: Remove bogus line from .vimrc
+  lineinfile:
+    dest: ~/.vimrc
+    state: absent
+    regexp: "^set list listchars"
+
+- name: Debian-isms
+  when: ansible_distribution == 'Debian'
+  block:
+    - lineinfile:
+        dest: ~/.zprofile
+        line: "export LC_CTYPE='en_US.UTF-8'"
+
+    - lineinfile: 
+        dest: ~/.zprofile
+        line: "export LANG='en_US.UTF-8'"
+
+    - lineinfile:
+        dest: ~/.zprofile
+        line: "export LANGUAGE='en_US.UTF-8'"
 
 - name: delete defaults
   file:
