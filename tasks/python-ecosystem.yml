@@ -1,0 +1,21 @@
+---
+- name: Check if pyenv-installer is installed
+  stat: 
+    path: ~/.pyenv/plugins/pyenv-installer
+  register: pyenv_installer_dir
+
+- name: install pyenv via installer
+  when: pyenv_installer_dir.stat.exists == false
+  block:
+    - name: fetch installer
+      get_url:
+        url: https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer
+        dest: /tmp/pyenv_installer.sh
+    
+    - name: install
+      command: bash -c /tmp/pyenv_installer.sh
+      args:
+        creates: ~/.pyenv/plugins/pyenv-installer
+
+# - name: write zsh config
+#https://github.com/sorin-ionescu/prezto/tree/master/modules/python

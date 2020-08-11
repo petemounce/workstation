@@ -36,3 +36,5 @@
       tags: [config]
     - import_tasks: tasks/kube.yml
       tags: [kube, kubernetes]
+    - import_tasks: tasks/python-ecosystem.yml
+      tags: [python]
