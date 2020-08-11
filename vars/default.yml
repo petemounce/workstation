@@ -1,10 +1,10 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: yes
-configure_sudoers: yes
-configure_terminal: yes
-configure_osx: yes
+configure_dotfiles: true
+configure_sudoers: true
+configure_terminal: true
+configure_osx: true
 
 homebrew_installed_packages:
   - adns
