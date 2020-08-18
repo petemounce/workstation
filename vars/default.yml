@@ -12,6 +12,7 @@ homebrew_installed_packages:
   - automake
   - awscli
   - bash-completion
+  - bazel
   - bison
   - buildkite-agent
   - cmake
@@ -19,7 +20,7 @@ homebrew_installed_packages:
   - ctags
   - direnv
   - docker-compose
-  - dotnet
+  - fzf
   - gdbm
   - gettext
   - gh
@@ -113,6 +114,7 @@ homebrew_cask_apps:
   - controlplane
   - datagrip
   - docker
+  - dotnet
   - dropbox
   - firefox
   - goland
