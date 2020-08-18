@@ -75,6 +75,7 @@
     src: dot-aliases.j2
     dest: "{{ ansible_user_dir }}/.aliases"
 
+# https://www.imore.com/how-use-sudo-your-mac-touch-id
 - name: allow touch ID sudo on mac
   template:
     src: pam.d.sudo.j2
