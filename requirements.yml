@@ -1,2 +1,5 @@
 ---
+- name: gantsign.visual-studio-code-extensions
+  version: 2.2.0
 - name: geerlingguy.homebrew
+  version: 3.1.0

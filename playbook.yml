@@ -40,3 +40,5 @@
       tags: [kube, kubernetes]
     - import_tasks: tasks/python-ecosystem.yml
       tags: [python]
+    - import_tasks: tasks/visual-studio-code.yml
+      tags: [vscode, visual-studio-code]

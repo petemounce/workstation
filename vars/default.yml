@@ -19,6 +19,7 @@ homebrew_installed_packages:
   - ctags
   - direnv
   - docker-compose
+  - dotnet
   - gdbm
   - gettext
   - gh
@@ -139,3 +140,57 @@ homebrew_cask_apps:
   - vlc
   - zoom
   - zoomus
+
+vscode_extensions:
+  - aaron-bond.better-comments
+  - BazelBuild.vscode-bazel
+  - bbenoist.Nix
+  - bbenoist.vagrant
+  - bungcip.better-toml
+  - caarlos0.language-prometheus
+  - dannymidnight.vscode-buildkite
+  - DavidAnson.vscode-markdownlint
+  - DevonDCarew.bazel-code
+  - DotJoshJohnson.xml
+  - eamodio.gitlens
+  - exiasr.hadolint
+  - fcrespo82.markdown-table-formatter
+  - GitHub.vscode-pull-request-github
+  - golang.go
+  - Gruntfuggly.todo-tree
+  - hangxingliu.vscode-systemd-support
+  - hashicorp.terraform
+  - heptio.jsonnet
+  - jetmartin.bats
+  - lextudio.restructuredtext
+  - maelvalais.autoconf
+  - MarkLarah.pre-commit-vscode
+  - medo64.render-crlf
+  - moshfeu.compare-folders
+  - ms-azuretools.vscode-docker
+  - ms-dotnettools.csharp
+  - ms-mssql.mssql
+  - ms-python.python
+  - ms-vscode.powershell
+  - ms-vsliveshare.vsliveshare
+  - mtxr.sqltools
+  - rafaelmaiolla.diff
+  - redhat.vscode-yaml
+  - rupisaini.vscode-ansible-linter
+  - ryu1kn.partial-diff
+  - s3ramsay.vscode-gtm
+  - Shan.code-settings-sync
+  - sidneys1.gitconfig
+  - slevesque.perforce
+  - SonarSource.sonarlint-vscode
+  - sourcegraph.sourcegraph
+  - stkb.rewrap
+  - timonwong.shellcheck
+  - tsandall.opa
+  - vscoss.vscode-ansible
+  - wayou.vscode-todo-highlight
+  - wengerk.highlight-bad-chars
+  - wholroyd.jinja
+  - xrc-inc.jsonnet-formatter
+  - zhouronghui.propertylist
+  - zxh404.vscode-proto3
