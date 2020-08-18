@@ -1,11 +1,12 @@
 ---
 - hosts: all
   connection: local
+  gather_facts: true
 
   vars_files:
     - vars/default.yml  # overridden by include_vars below
     - vars/improbable.yml
-    - secrets.yml
+    - vars/secrets.yml
 
   pre_tasks:
     - include_vars: "{{ item }}"
@@ -13,6 +14,7 @@
         - vars/{{ ansible_os_family }}.yml
         - vars/default.yml
       tags: [always]
+
     - name: Display all variables/facts known for a host
       debug:
         var: hostvars[inventory_hostname]
