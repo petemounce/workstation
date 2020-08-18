@@ -74,3 +74,10 @@
   template:
     src: dot-aliases.j2
     dest: "{{ ansible_user_dir }}/.aliases"
+
+- name: allow touch ID sudo on mac
+  template:
+    src: pam.d.sudo.j2
+    dest: /etc/pam.d/sudo
+    mode: '0444'
+  become: true
