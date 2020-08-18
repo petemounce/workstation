@@ -194,3 +194,5 @@ vscode_extensions:
   - xrc-inc.jsonnet-formatter
   - zhouronghui.propertylist
   - zxh404.vscode-proto3
+
+screen_lock_time_seconds: 120

@@ -42,3 +42,5 @@
       tags: [python]
     - import_tasks: tasks/visual-studio-code.yml
       tags: [vscode, visual-studio-code]
+    - import_tasks: "tasks/screensaver.yml"
+      tags: [screensaver]
