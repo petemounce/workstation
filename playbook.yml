@@ -16,8 +16,7 @@
     - name: Display all variables/facts known for a host
       debug:
         var: hostvars[inventory_hostname]
-      when: debug == "true"
-      tags: ["always", "debug"]
+      when: "{{ debug | default('false') }}"
 
   roles:
     - role: geerlingguy.homebrew

@@ -12,5 +12,7 @@ macos/bootstrap.sh
 If you're happy with that set of tasks and have read what they do:
 
 ```shell
-./run.sh --extra-vars debug=true
+./run.sh
 ```
+
+You can pass flags and arguments to `run.sh` and `ansible-playbook` will receive them.
