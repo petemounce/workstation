@@ -89,3 +89,5 @@
     $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
   args:
     creates: ~/.fzf.zsh
+
+# TODO: https://github.com/gpanders/fzf-prezto
