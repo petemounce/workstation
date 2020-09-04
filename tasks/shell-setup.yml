@@ -82,3 +82,10 @@
     dest: /etc/pam.d/sudo
     mode: '0444'
   become: true
+
+# shell rc is done via .zsh.after/fzf.zsh
+- name: install fzf key-bindings and fuzzy completion
+  shell: >-
+    $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+  args:
+    creates: ~/.fzf.zsh
