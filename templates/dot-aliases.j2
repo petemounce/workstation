@@ -1,1 +1,8 @@
 # {{ ansible_managed }}
+
+gssh() {
+    echo "Getting instance details for ${1}"
+    ip="$(gcloud compute instances list --filter="${name}" --format=json "${1}" | jq -r '.[].networkInterfaces[0].accessConfigs[0].natIP')"
+    echo "SSHing to ${ip}"
+    ssh "${ip}"
+}
