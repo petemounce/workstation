@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu -o pipefail
+set -o errexit -o errtrace -o nounset -o pipefail
 set -x
 
 #xcode-select --install || echo "xcode-select has been installed already, probably."
