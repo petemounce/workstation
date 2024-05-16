@@ -4,9 +4,10 @@ This is my mac; there are many like it, but this one is mine.
 
 ```bash
 curl --location --fail --show-error --silent https://github.com/petemounce/workstation/archive/refs/heads/master.zip --output "workstation-master.zip"
-unzip -d "workstation-master.zip"
+unzip -d "." "workstation-master.zip"
 cd workstation-master
 bash bin/bootstrap.sh
+source ".venv/bin/activate"
 bash bin/run.sh --list-tasks
 ```
 

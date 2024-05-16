@@ -1,3 +1,0 @@
----
-ssh_keys:
-  - "{{ ansible_user_dir }}/.ssh/dot-ssh/improbable/improbable_rsa"

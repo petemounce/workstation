@@ -2,7 +2,5 @@
 localhost:
   vars:
     ansible_connection: local
-    # https://www.cyberciti.biz/faq/how-to-set-and-use-sudo-password-for-ansible-vault/
-    ansible_become_pass: '{{ local_workstation_password }}'
   hosts:
     127.0.0.1
