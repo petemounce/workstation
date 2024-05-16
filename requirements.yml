@@ -14,4 +14,3 @@ roles:
     # at-the-time master@HEAD
     version: 68ce8fe306ea6d060063ab881cc1a3fdb72c9882
     name: install_xcode
-

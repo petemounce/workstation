@@ -1,18 +1,19 @@
 # README
 
-This is my mac, there are many like it, but this one is mine.
+This is my mac; there are many like it, but this one is mine.
 
-```shell
-git clone https://github.com/petemounce/workstation
-cd workstation
-macos/bootstrap.sh
-./run.sh --list-tasks
+```bash
+curl --location --fail --show-error --silent https://github.com/petemounce/workstation/archive/refs/heads/master.zip --output "workstation-master.zip"
+unzip -d "workstation-master.zip"
+cd workstation-master
+bash bin/bootstrap.sh
+bash bin/run.sh --list-tasks
 ```
 
 If you're happy with that set of tasks and have read what they do:
 
 ```shell
-./run.sh
+bin/run.sh
 ```
 
-You can pass flags and arguments to `run.sh` and `ansible-playbook` will receive them.
+You can pass flags and arguments to `bin/run.sh` and `ansible-playbook` will receive them.
