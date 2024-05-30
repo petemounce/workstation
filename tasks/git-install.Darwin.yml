@@ -1,0 +1,13 @@
+---
+- name: software via brew
+  community.general.homebrew:
+    name: "{{ lv.name }}{{ lv.version | default('') }}"
+    state: "{{ lv.state | default('present') }}"
+  loop:
+    - name: git
+    # nicer git log viewer
+    - name: tig
+  loop_control:
+    loop_var: lv
+  become: true
+  become_user: brew
