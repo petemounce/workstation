@@ -20,8 +20,8 @@
       when: "{{ debug | default('false') }}"
 
   roles:
-    - role: geerlingguy.homebrew
-      tags: [homebrew]
+    - roles: baseline
+      tags: [baseline]
 
   tasks:
     - import_tasks: tasks/ansible-setup.yml
