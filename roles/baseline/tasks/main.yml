@@ -1,3 +1,12 @@
 ---
+- name: ansible
+  import_tasks: ansible-setup.yml
+
 - name: platform-specific baseline
-  include_tasks: "{{ ansible_os_family }}.yml"
+  include_tasks: "package-manager.{{ ansible_os_family }}.yml"
+
+- name: ssh
+  import_tasks: ssh-setup.yml
+
+- name: git
+  import_tasks: git.yml

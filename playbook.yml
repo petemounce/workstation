@@ -20,19 +20,10 @@
       when: "{{ debug | default('false') }}"
 
   roles:
-    - roles: baseline
+    - role: baseline
       tags: [baseline]
 
   tasks:
-    - import_tasks: tasks/ansible-setup.yml
-      tags: [ansible]
-    - import_tasks: tasks/ssh-setup.yml
-      tags: [ssh]
-    - import_tasks: tasks/shell-setup.yml
-      tags: [shell]
-    # git-setup comes after shell-setup because it overrides things done there.
-    - import_tasks: tasks/git-setup.yml
-      tags: [git]
     - import_tasks: tasks/config-setup.yml
       tags: [config]
     - import_tasks: tasks/python-ecosystem.yml
