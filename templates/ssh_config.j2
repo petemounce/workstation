@@ -1,4 +1,27 @@
 # {{ ansible_managed }}
 
-Include ~/.ssh/dot-ssh/config-common
-Include ~/.ssh/dot-ssh/config-{{ ansible_os_family }}
+# https://www.ssh.com/academy/ssh/config
+
+Host *
+  # Smaller is faster, usually.
+  Compression yes
+
+  # Keep control connections around.
+  ControlMaster auto
+  ControlPath ~/.ssh/multiplex-%r@%h:%p
+  ControlPersist 1
+
+  # Make my local ssh-agent forward through.
+  ForwardAgent yes
+
+  Protocol 2
+
+  # Keep the connection alive for a while.
+  ServerAliveCountMax 30
+  ServerAliveInterval 60
+
+  # Most instances I connect to are ephemeral.
+  StrictHostKeyChecking no
+
+  # Some people are visual & use this to notice an MITM.
+  VisualHostKey yes

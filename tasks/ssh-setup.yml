@@ -10,20 +10,10 @@
     - "{{ ansible_user_dir }}/.ssh"
     - "{{ ansible_user_dir }}/.ssh/multiplex"
 
-- name: symlink in dropbox
-  file:
-    state: link
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  with_items:
-    - {src: "{{ ansible_user_dir }}/Dropbox/profiles/dot-ssh", dest: "{{ ansible_user_dir }}/.ssh/dot-ssh"}
-    - {src: "{{ ansible_user_dir }}/Dropbox/profiles/dot-ssh/known_hosts", dest: "{{ ansible_user_dir }}/.ssh/known_hosts"}
-
 - name: ssh config file
   template:
     src: ssh_config.j2
     dest: "{{ ansible_user_dir }}/.ssh/config"
-
-# - name: load keys to agent
-#   command: ssh-add -K {{ item }}
-#   with_items: "{{ ssh_keys }}"
+    mode: "0644"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
