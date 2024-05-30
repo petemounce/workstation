@@ -1,0 +1,3 @@
+---
+- name: set up lock screen timer
+  command: "defaults -currentHost write com.apple.screensaver idleTime {{ screen_lock_time_seconds }}"
