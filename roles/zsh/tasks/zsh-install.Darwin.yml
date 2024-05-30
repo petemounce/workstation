@@ -4,9 +4,7 @@
     name: "{{ lv.name }}"
     state: "{{ lv.state | default('present') }}"
   loop:
-    - name: git
-    # nicer git log viewer
-    - name: tig
+    - name: zsh
   loop_control:
     loop_var: lv
   become: true

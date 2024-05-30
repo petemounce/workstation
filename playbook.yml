@@ -22,6 +22,8 @@
   roles:
     - role: baseline
       tags: [baseline]
+    - role: zsh
+      tags: [shell]
 
   tasks:
     - import_tasks: tasks/config-setup.yml

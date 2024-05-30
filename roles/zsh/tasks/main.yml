@@ -1,0 +1,59 @@
+---
+- name: install
+  include_tasks: "zsh-install.{{ ansible_os_family }}.yml"
+
+- name: prezto
+  block:
+    - name: fetch prezto
+      git:
+        repo: "https://github.com/sorin-ionescu/prezto.git"
+        dest: "{{ ansible_env.HOME }}/.zprezto"
+        recursive: true
+        version: HEAD
+      become_user: "{{ ansible_user_id }}"
+
+    - name: backup and link zsh config files
+      include_tasks: zsh_backup_and_link.yml
+      loop:
+        - file: "zlogin"
+        - file: "zlogout"
+        - file: "zprofile"
+        - file: "zshenv"
+      loop_control:
+        loop_var: lv
+
+    - name: local configuration directories
+      file:
+        state: directory
+        path: "{{ lv.path }}"
+      loop:
+        - path: "{{ ansible_env.HOME }}/.zsh.before"
+        - path: "{{ ansible_env.HOME }}/.zsh.after"
+      loop_control:
+        loop_var: lv
+
+- name: zshrc
+  copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+
+- name: preztorc
+  template:
+    src: preztorc.j2
+    dest: "{{ ansible_env.HOME }}/.zpreztorc"
+
+- name: prompt
+  copy:
+    src: prompt.zsh
+    dest: "{{ ansible_env.HOME }}/.zsh.after/prompt.zsh"
+
+- name: aliases
+  lineinfile:
+    line: '[[ -r "${HOME}/.aliases" ]] && source "${HOME}/.aliases"'
+    path: "{{ ansible_env.HOME }}/.zsh.after/aliases.zsh"
+    create: true
+
+- name: completion
+  copy:
+    src: completion.zsh
+    dest: "{{ ansible_env.HOME }}/.zsh.after/completion.zsh"

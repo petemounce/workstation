@@ -1,0 +1,24 @@
+---
+- name: stat
+  stat:
+    path: "{{ ansible_env.HOME }}/.{{ lv.file }}"
+  register: zsh_file_stat
+
+- name: backup
+  when: zsh_file_stat.stat.exists
+  copy:
+    remote_src: true
+    src: "{{ ansible_env.HOME }}/.{{ lv.file }}"
+    dest: "{{ ansible_env.HOME }}/.{{ lv.file }}.backup"
+
+- name: rm
+  when: zsh_file_stat.stat.exists
+  file:
+    state: absent
+    path: "{{ ansible_env.HOME }}/.{{ lv.file }}"
+
+- name: link zprezto config files
+  file:
+    state: link
+    src: "{{ ansible_env.HOME }}/.zprezto/runcoms/{{ lv.file }}"
+    dest: "{{ ansible_env.HOME }}/.{{ lv.file }}"
