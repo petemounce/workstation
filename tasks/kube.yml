@@ -1,8 +1,0 @@
----
-- name: remove previous
-  file:
-    state: absent
-    path: "{{ ansible_user_dir }}/.minikube-completion"
-
-- name: minikube completion
-  shell: kubectl completion zsh > "{{ ansible_user_dir }}/.minikube-completion"
