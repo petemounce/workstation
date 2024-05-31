@@ -22,6 +22,8 @@ This is my mac; there are many like it, but this one is mine.
 
 1. To avoid needing to use `--ask-become-pass` and typing your user's password on every run-through:
 
+    <https://jpmens.net/2021/12/17/ansible-vault-password-in-macos-keychain/>
+
     1. Make an ansible vault password inside macOS keychain to avoid needing to type your account password every run-through:
 
         ```bash

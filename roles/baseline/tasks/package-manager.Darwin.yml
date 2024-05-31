@@ -22,7 +22,7 @@
         name: install_xcode
       vars:
         xcode_xip_location: "{{ ansible_env.HOME }}/.cache/xcode-installers/Xcode_{{ xcode_version }}.xip"
-        xcode_major_version: 15
+        xcode_major_version: "{{ xcode_version | split('.')[0] }}"
     - name: activate new XCode Developer directory
       become: true
       command: xcode-select --switch /Applications/Xcode.app/Contents/Developer
