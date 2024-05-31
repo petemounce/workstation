@@ -5,7 +5,7 @@
     state: directory
     mode: 0700
     owner: "{{ ansible_user_id }}"
-    group: "{{ user_group }}"
+    group: "{{ ansible_user_gid }}"
   with_items:
     - "{{ ansible_user_dir }}/.ssh"
     - "{{ ansible_user_dir }}/.ssh/multiplex"

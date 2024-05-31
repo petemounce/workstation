@@ -5,7 +5,6 @@
 
   vars_files:
     - vars/default.yml  # overridden by include_vars below
-    - vars/work.yml
 
   pre_tasks:
     - include_vars: "{{ item }}"
