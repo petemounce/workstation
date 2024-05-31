@@ -12,7 +12,7 @@ curl --location --fail --show-error --silent https://github.com/petemounce/works
 unzip -d "." "workstation-master.zip"
 cd workstation-master
 bash bin/bootstrap.sh
-source ".venv/bin/activate"
+[[ -d ".venv" ]] && source ".venv/bin/activate"
 bash bin/run.sh --list-tasks
 ```
 
