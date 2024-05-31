@@ -1,8 +1,9 @@
 ---
 - name: software via brew
-  community.general.homebrew:
+  community.general.homebrew_cask:
     name: "{{ lv.name }}"
     state: "{{ lv.state | default('present') }}"
+    accept_external_apps: true
   loop:
     - name: visual-studio-code
   loop_control:

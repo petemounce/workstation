@@ -40,12 +40,14 @@
         group: staff
         create_home: true
       become: true
+
     - name: install homebrew
       import_role:
         name: geerlingguy.mac.homebrew
       vars:
         homebrew_user: brew
         homebrew_group: admin
+
     - name: alias for brew usage to shell configs
       lineinfile:
         line: alias brew='sudo -Hu brew brew'
@@ -56,6 +58,14 @@
         - path: "{{ ansible_env.HOME }}/.aliases"
       loop_control:
         loop_var: lv
+
+    # So that the homebrew has the totality of the underlying git repo...
+    - name: Update homebrew
+      community.general.homebrew:
+        update_homebrew: true
+        upgrade_all: true
+      become: true
+      become_user: brew
 
 - name: make a bin directory
   file:
