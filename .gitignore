@@ -3,8 +3,7 @@
 *.orig
 *.zip
 *.retry
-*.sublime-workspace
 *.vagrant
 config.yml
-project.code-workspace
 roles-external
+secrets.yml
