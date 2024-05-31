@@ -1,4 +1,7 @@
 ---
+- name: sudo
+  include_tasks: sudo.{{ ansible_os_family }}.yml
+
 - name: ansible
   import_tasks: ansible-setup.yml
 
