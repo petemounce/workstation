@@ -49,6 +49,7 @@
         user: "{{ ansible_user_id }}"
         runas: brew
         commands: ALL
+      become: true
 
     - name: install homebrew
       import_role:
