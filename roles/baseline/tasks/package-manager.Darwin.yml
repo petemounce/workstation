@@ -42,6 +42,14 @@
         password: "{{ baseline_brew_password }}"
       become: true
 
+    - name: allow current user to sudo as homebrew user
+      community.general.sudoers:
+        name: allow-{{ ansible_user_id }}-to-do-as-brew
+        state: present
+        user: "{{ ansible_user_id }}"
+        runas: brew
+        commands: ALL
+
     - name: install homebrew
       import_role:
         name: geerlingguy.mac.homebrew
