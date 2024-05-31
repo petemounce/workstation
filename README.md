@@ -3,6 +3,11 @@
 This is my mac; there are many like it, but this one is mine.
 
 ```bash
+xcode-select --install || echo "xcode-select has been installed already, probably."
+# then hit install on the GUI popup
+```
+
+```bash
 curl --location --fail --show-error --silent https://github.com/petemounce/workstation/archive/refs/heads/master.zip --output "workstation-master.zip"
 unzip -d "." "workstation-master.zip"
 cd workstation-master

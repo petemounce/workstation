@@ -2,7 +2,6 @@
 set -o errexit -o errtrace -o nounset -o pipefail
 set -x
 
-xcode-select --install || echo "xcode-select has been installed already, probably."
 #sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.15.pkg -target /
 export PATH="${HOME}/.cargo/bin:${PATH}"
 if ! command -v uv > "/dev/null"; then
