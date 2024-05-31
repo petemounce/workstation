@@ -24,13 +24,13 @@
       tags: [baseline]
     - role: zsh
       tags: [shell]
+    - role: vscode
+      tags: [editor, vscode]
 
   tasks:
+    - import_tasks: "tasks/screensaver.yml"
+      tags: [screensaver]
     - import_tasks: tasks/config-setup.yml
       tags: [config]
     - import_tasks: tasks/python-ecosystem.yml
       tags: [python]
-    - import_tasks: tasks/visual-studio-code.yml
-      tags: [vscode, visual-studio-code]
-    - import_tasks: "tasks/screensaver.yml"
-      tags: [screensaver]

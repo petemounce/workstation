@@ -1,4 +1,7 @@
 ---
+- name: install visual studio code
+  include_tasks: install.{{ ansible_os_family }}.yml
+
 - name: install vscode extensions
   include_role:
     name: gantsign.visual-studio-code-extensions

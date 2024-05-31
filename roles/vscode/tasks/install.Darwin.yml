@@ -1,0 +1,11 @@
+---
+- name: software via brew
+  community.general.homebrew:
+    name: "{{ lv.name }}"
+    state: "{{ lv.state | default('present') }}"
+  loop:
+    - name: visual-studio-code
+  loop_control:
+    loop_var: lv
+  become: true
+  become_user: brew
