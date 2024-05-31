@@ -34,8 +34,8 @@
     loop_var: lv
 
 - name: user-level gitconfig
-  copy:
-    src: user.gitconfig
+  template:
+    src: gitconfig.j2
     dest: "{{ ansible_env.HOME }}/.gitconfig"
     mode: "0644"
     owner: "{{ ansible_user_id }}"
