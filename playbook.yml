@@ -22,6 +22,8 @@
   roles:
     - role: baseline
       tags: [baseline]
+      vars:
+        baseline_brew_password: "{{ brew_password }}"
     - role: zsh
       tags: [shell]
     - role: vscode

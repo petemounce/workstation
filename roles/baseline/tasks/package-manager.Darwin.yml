@@ -39,6 +39,7 @@
         comment: Homebrew https://brew.sh
         group: staff
         create_home: true
+        password: "{{ baseline_brew_password }}"
       become: true
 
     - name: install homebrew
