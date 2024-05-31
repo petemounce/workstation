@@ -37,7 +37,7 @@
         state: file
         path: "{{ ansible_env.HOME }}/.zsh.before/blank.zsh"
         mode: "0644"
-        user: "{{ ansible_user_id }}"
+        owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
 
     - name: homebrew shellenv
@@ -47,7 +47,7 @@
           eval "$(/opt/homebrew/bin/brew shellenv)"
         path: "{{ ansible_env.HOME }}/.zsh.before/homebrew.zsh"
         mode: "0644"
-        user: "{{ ansible_user_id }}"
+        owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
 
 - name: zshrc
