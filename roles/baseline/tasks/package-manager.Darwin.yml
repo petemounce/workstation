@@ -50,7 +50,7 @@
         path: "{{ lv.path }}"
         create: true
       loop:
-        - path: "{{ ansible_env.HOME }}/.zshrc"
+        # - path: "{{ ansible_env.HOME }}/.zshrc"
         - path: "{{ ansible_env.HOME }}/.aliases"
       loop_control:
         loop_var: lv
