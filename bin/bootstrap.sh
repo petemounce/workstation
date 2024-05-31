@@ -9,8 +9,10 @@ if ! command -v uv > "/dev/null"; then
 	UV_VERSION="0.1.44"
 	curl --proto '=https' --tlsv1.2 -LsSf https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-installer.sh | sh
 fi
-uv venv
-source ".venv/bin/activate"
+if command -v python3 > "/dev/null"; then
+	uv venv
+	source ".venv/bin/activate"
+fi
 uv pip install --requirement "requirements.txt"
 ansible-playbook --version
 ansible-galaxy collection install --requirements-file "requirements.yml"
