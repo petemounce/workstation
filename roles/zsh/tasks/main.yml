@@ -36,7 +36,6 @@
       file:
         state: file
         path: "{{ ansible_env.HOME }}/.zsh.before/blank.zsh"
-        create: true
         mode: "0644"
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
