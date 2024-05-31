@@ -36,6 +36,7 @@
       file:
         state: file
         path: "{{ ansible_env.HOME }}/.zsh.before/blank.zsh"
+        create: true
         mode: "0644"
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
@@ -46,6 +47,7 @@
           # homebrew activation
           eval "$(/opt/homebrew/bin/brew shellenv)"
         path: "{{ ansible_env.HOME }}/.zsh.before/homebrew.zsh"
+        create: true
         mode: "0644"
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
