@@ -37,7 +37,8 @@
       ansible.builtin.user:
         name: brew
         comment: Homebrew https://brew.sh
-        group: admin
+        group: staff
+        create_home: true
       become: true
     - name: install homebrew
       import_role:
