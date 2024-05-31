@@ -32,6 +32,14 @@
       loop_control:
         loop_var: lv
 
+    - name: blank .zsh.before
+      file:
+        state: file
+        path: "{{ ansible_env.HOME }}/.zsh.before/blank.zsh"
+        mode: "0644"
+        user: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+
 - name: zshrc
   copy:
     src: zshrc
