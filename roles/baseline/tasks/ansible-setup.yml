@@ -4,11 +4,19 @@
     path: "{{ downloads }}"
     state: directory
 
-- name: Ensure /etc/ansible directory exists.
+- name: Ensure directories we need exist.
   file:
-    path: /etc/ansible
+    path: "{{ lv.path }}"
     state: directory
+    owner: root
+    group: wheel
+    mode: "0755"
   become: true
+  loop:
+    - path: "/etc/ansible"
+    - path: "/usr/local/etc"
+  loop_control:
+    loop_var: lv
 
 - name: Symlink /usr/local/etc/ansible to /etc/ansible.
   file:
