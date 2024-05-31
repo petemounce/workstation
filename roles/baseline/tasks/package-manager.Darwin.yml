@@ -38,6 +38,7 @@
         name: brew
         comment: Homebrew https://brew.sh
         group: admin
+      become: true
     - name: install homebrew
       import_role:
         name: geerlingguy.mac.homebrew
