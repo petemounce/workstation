@@ -12,8 +12,10 @@ fi
 if python3 --version > "/dev/null"; then
 	uv venv
 	source ".venv/bin/activate"
+	uv pip install --requirement "requirements.txt"
+else
+	uv pip install --system --requirement "requirements.txt"
 fi
-uv pip install --requirement "requirements.txt"
 ansible-playbook --version
 ansible-galaxy collection install --requirements-file "requirements.yml"
 if ! [[ -d "roles-external" ]]; then
