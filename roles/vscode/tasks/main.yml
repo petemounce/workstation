@@ -6,7 +6,7 @@
   blockinfile:
     block: |
       # Add Visual Studio Code (code), https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
-      export PATH="\${PATH}:\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin\""
+      export PATH="${PATH}:\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin\""
     path: "{{ ansible_env.HOME }}/.zsh.after/vscode.zsh"
     create: true
     mode: "0644"
