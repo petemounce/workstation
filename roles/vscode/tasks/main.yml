@@ -2,6 +2,16 @@
 - name: install visual studio code
   include_tasks: install.{{ ansible_os_family }}.yml
 
+- name: add code to PATH
+  blockinfile:
+    block: |
+      # Add Visual Studio Code (code), https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
+      export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    path: "{{ ansible_env.HOME }}/.zsh.after/vscode.zsh"
+    mode: "0644"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+
 - name: install vscode extensions
   include_role:
     name: gantsign.visual-studio-code-extensions

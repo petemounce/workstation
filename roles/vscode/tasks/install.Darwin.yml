@@ -3,7 +3,8 @@
   community.general.homebrew_cask:
     name: "{{ lv.name }}"
     state: "{{ lv.state | default('present') }}"
-    accept_external_apps: true
+    # accept_external_apps: true
+    # sudo_password: "{{ ansible_become_password }}"
   loop:
     - name: visual-studio-code
   loop_control:

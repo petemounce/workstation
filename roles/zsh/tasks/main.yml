@@ -40,6 +40,16 @@
         user: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
 
+    - name: homebrew shellenv
+      blockinfile:
+        block: |
+          # homebrew activation
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        path: "{{ ansible_env.HOME }}/.zsh.before/homebrew.zsh"
+        mode: "0644"
+        user: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+
 - name: zshrc
   copy:
     src: zshrc
