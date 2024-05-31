@@ -42,6 +42,19 @@ This is my mac; there are many like it, but this one is mine.
         ansible_become_password: 'your password'
         ```
 
+1. Download an XCode xip (because `download.developer.apple.com` requires authentication):
+
+    1. Set `vars/Darwin.yml` `xcode_version` if needed.
+    1. Browse to <https://developer.apple.com/download/all/?q=xcode>
+    1. Sign in with an Apple ID.
+    1. Download the version you want.
+    1. Move it to where ansible will look for it:
+
+        ```bash
+        mkdir -p "${HOME}/.cache/xcode-installers"
+        mv "${HOME}/Download/Xcode_{xcode_version}.xip" "${HOME}/.cache/xcode-installers/Xcode_{xcode_version}.xip"
+        ```
+
 1. If you're happy with that set of tasks and have read what they do:
 
     ```shell
