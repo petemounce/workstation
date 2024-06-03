@@ -114,5 +114,8 @@
     - "{{ homebrew_prefix }}/share/zsh"
     - "{{ homebrew_prefix }}/share/zsh/site-functions"
 
+- name: tmux
+  import_tasks: tmux.yml
+
 - name: fzf
   import_tasks: fzf.yml

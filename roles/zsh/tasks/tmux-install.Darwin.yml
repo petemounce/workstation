@@ -1,0 +1,8 @@
+---
+- name: tmux brew
+  community.general.homebrew:
+    name:
+      # tmux is great for terminal wizardry.
+      - tmux
+  become: true
+  become_user: brew

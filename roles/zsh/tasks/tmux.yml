@@ -1,0 +1,11 @@
+---
+# https://thoughtbot.com/blog/a-tmux-crash-course
+# https://github.com/rothgar/awesome-tmux
+
+- name: install
+  include_tasks: tmux-install.{{ ansible_os_family }}.yml
+
+- name: tmux configuration
+  copy:
+    src: tmux.conf
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
