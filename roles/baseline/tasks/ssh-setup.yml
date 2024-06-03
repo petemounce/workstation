@@ -17,3 +17,11 @@
     mode: "0644"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_gid }}"
+
+- name: Set proper permissions on ~/.ssh/authorized_keys
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.ssh/authorized_keys"
+    state: touch
+    mode: "0600"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
