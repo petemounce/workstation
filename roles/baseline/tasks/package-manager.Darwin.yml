@@ -63,14 +63,21 @@
         commands: /opt/homebrew/bin/brew
       become: true
 
+    - name: make homebrew path
+      file:
+        state: directory
+        path: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+        owner: brew
+        group: admin
+        mode: "0755"
+      become: true
+
     - name: install homebrew
       import_role:
         name: geerlingguy.mac.homebrew
       vars:
         homebrew_user: brew
         homebrew_group: admin
-      become: true
-      become_user: brew
 
     - name: alias for brew usage to shell configs
       lineinfile:
