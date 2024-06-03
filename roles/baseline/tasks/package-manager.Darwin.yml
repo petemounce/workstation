@@ -38,6 +38,9 @@
         name: brew
         comment: Homebrew https://brew.sh
         group: staff
+        groups:
+          # So that brew can write apps into /Applications
+          - wheel
         create_home: true
         password: "{{ baseline_brew_password }}"
       become: true
