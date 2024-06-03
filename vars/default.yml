@@ -1,6 +1,10 @@
 ---
 downloads: ~/.ansible-downloads/
 
+nerd_fonts:
+  - JetBrainsMono
+  - SourceCodePro
+
 root_group: root
 
 screen_lock_time_seconds: 120
