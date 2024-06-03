@@ -43,6 +43,9 @@ This is my mac; there are many like it, but this one is mine.
         ```yaml
         ansible_become_password: 'your password'
         brew_password: 'brew user's password' # Choose something easy to type...
+        github_token:
+          personal: ''
+          work: ''
         ```
 
 1. Download an XCode xip (because `download.developer.apple.com` requires authentication):
