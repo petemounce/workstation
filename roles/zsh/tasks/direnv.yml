@@ -1,0 +1,13 @@
+---
+- name: install
+  include_tasks: direnv-install.{{ ansible_os_family }}.yml
+
+- name: shell configuration
+  lineinfile:
+    line: eval "$(direnv hook zsh)"
+    path: "{{ lv.path }}"
+    create: true
+  loop:
+    - path: "{{ ansible_env.HOME }}/.zsh.after/direnv.zsh"
+  loop_control:
+    loop_var: lv

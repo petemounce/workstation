@@ -126,4 +126,5 @@
 - name: bat
   import_tasks: bat.yml
 
-
+- name: direnv
+  import_tasks: direnv.yml
