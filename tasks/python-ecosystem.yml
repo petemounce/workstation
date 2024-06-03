@@ -56,6 +56,6 @@
     loop_var: lv
 
 - name: pyenv make global version  # noqa 301 does not create a file
-  command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv global {{ install_pyenv_python_global_version }}"
+  command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv global {{ python_global_version }}"
   environment:
     PYENV_ROOT: "{{ ansible_env.HOME }}/.pyenv"

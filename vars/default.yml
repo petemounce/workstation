@@ -5,6 +5,7 @@ nerd_fonts:
   - JetBrainsMono
   - SourceCodePro
 
+python_global_version: "3.10.7"
 python_versions:
   - "3.10.7"
 
