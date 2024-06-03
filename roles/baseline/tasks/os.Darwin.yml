@@ -1,44 +1,46 @@
 ---
-- name: Disable auto correct
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticSpellingCorrectionEnabled
-    type: bool
-    value: false
-- name: Disable smart quotes
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticQuoteSubstitutionEnabled
-    type: bool
-    value: false
-- name: Disable smart dashes
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticDashSubstitutionEnabled
-    type: bool
-    value: false
-- name: Disable automatic capitalization
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticCapitalizationEnabled
-    type: bool
-    value: false
-- name: Set a fast initial keyboard repeat rate
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: InitialKeyRepeat
-    type: int
-    value: 20
-- name: Set a fast keyboard repeat rate
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: KeyRepeat
-    type: int
-    value: 1
+- name: typing and keyboard
+  block:
+    - name: Disable auto correct
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticSpellingCorrectionEnabled
+        type: bool
+        value: false
+    - name: Disable smart quotes
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticQuoteSubstitutionEnabled
+        type: bool
+        value: false
+    - name: Disable smart dashes
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticDashSubstitutionEnabled
+        type: bool
+        value: false
+    - name: Disable automatic capitalization
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticCapitalizationEnabled
+        type: bool
+        value: false
+    - name: Set a fast initial keyboard repeat rate
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: InitialKeyRepeat
+        type: int
+        value: 20
+    - name: Set a fast keyboard repeat rate
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: KeyRepeat
+        type: int
+        value: 1
 
 - name: screen-capture
   block:
-    - name: Set screencapture folder to Downloads
+    - name: Set screen capture folder to Downloads
       community.general.osx_default:
         domain: com.apple.screencapture
         key: location
@@ -47,7 +49,7 @@
     - name: "Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
       community.general.osx_default:
         domain: com.apple.screencapture
-        key:
+        key: type
         type: string
         value: "png"
     - name: Disable shadow in screenshots
