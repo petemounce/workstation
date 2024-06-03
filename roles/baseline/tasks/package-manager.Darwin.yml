@@ -41,7 +41,7 @@
         groups:
           # So that brew can write apps into /Applications
           - admin
-          - wheel
+          # - wheel
         create_home: true
         password: "{{ baseline_brew_password }}"
       become: true
