@@ -1,4 +1,7 @@
 ---
+- name: OS-specific system settings
+  include_tasks: os.{{ ansible_os_family }}.yml
+
 - name: sudo
   include_tasks: sudo.{{ ansible_os_family }}.yml
 
