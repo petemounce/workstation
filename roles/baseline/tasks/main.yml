@@ -13,3 +13,6 @@
 
 - name: git
   import_tasks: git.yml
+
+- name: fonts
+  import_tasks: fonts.yml
