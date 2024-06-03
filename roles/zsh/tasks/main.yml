@@ -113,4 +113,3 @@
     - "{{ homebrew_prefix }}/share"
     - "{{ homebrew_prefix }}/share/zsh"
     - "{{ homebrew_prefix }}/share/zsh/site-functions"
-    - "{{ homebrew_prefix }}/share/zsh/5.9/functions"
