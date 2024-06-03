@@ -13,7 +13,7 @@
     - name: set installation facts
       stat:
         path: "{{ ansible_env.HOME }}/.pyenv"
-        register: pyenv_exists
+      register: pyenv_exists
 
     - name: install
       command: bash -c /tmp/pyenv_installer.sh
