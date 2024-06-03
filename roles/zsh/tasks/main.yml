@@ -113,3 +113,6 @@
     - "{{ homebrew_prefix }}/share"
     - "{{ homebrew_prefix }}/share/zsh"
     - "{{ homebrew_prefix }}/share/zsh/site-functions"
+
+- name: fzf
+  import_tasks: fzf.yml

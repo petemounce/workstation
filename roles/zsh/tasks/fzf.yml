@@ -1,0 +1,42 @@
+---
+# https://github.com/junegunn/fzf
+- name: fetch fzf from github
+  git:
+    repo: 'https://github.com/junegunn/fzf.git'
+    dest: "{{ ansible_env.HOME }}/.fzf"
+    depth: 1
+    version: HEAD
+  become_user: "{{ ansible_user_id }}"
+
+- name: install
+  include_tasks: fzf-install.{{ ansible_os_family }}.yml
+
+- name: Run install script
+  script: "{{ ansible_env.HOME }}/.fzf/install --key-bindings --completion --no-update-rc"
+  become_user: "{{ ansible_user_id }}"
+
+- name: make shell include
+  template:
+    src: fzf.j2
+    dest: "{{ ansible_env.HOME }}/.fzf.{{ lv.shell }}"
+    mode: "0644"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+  loop:
+    - shell: zsh
+  loop_control:
+    loop_var: lv
+
+- name: update shell config
+  lineinfile:
+    line: '[[ -f "${HOME}/.fzf.{{ lv.shell }}" ]] && source "${HOME}/.fzf.{{ lv.shell }}"'
+    path: "{{ lv.path }}"
+    mode: "0644"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    create: true
+  loop:
+    - path: "{{ ansible_env.HOME }}/.zsh.after/fzf.zsh"
+      shell: zsh
+  loop_control:
+    loop_var: lv

@@ -1,0 +1,7 @@
+---
+- name: fzf brew
+  community.general.homebrew:
+    name:
+      - fzf
+  become: true
+  become_user: brew
