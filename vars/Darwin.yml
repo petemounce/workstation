@@ -1,3 +1,4 @@
 ---
+font_dir: "{{ ansible_user_dir }}/Library/Fonts"
 root_group: wheel
 xcode_version: "15.4"
