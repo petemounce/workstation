@@ -20,7 +20,7 @@
 - name: Fix permissions for zsh
   ansible.builtin.file:
     path: "{{ item }}"
-    mode: 0755
+    mode: "0755"
   loop:
     - "{{ homebrew_prefix }}/share"
     - "{{ homebrew_prefix }}/share/zsh"
@@ -97,6 +97,19 @@
     create: true
 
 - name: completion
-  copy:
-    src: completion.zsh
-    dest: "{{ ansible_env.HOME }}/.zsh.after/completion.zsh"
+  block:
+    - name: zsh completion cache dir
+      file:
+        state: directory
+        path: "{{ ansible_env.HOME }}/.cache/zsh"
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+
+    - name: config file
+      copy:
+        src: completion.zsh
+        dest: "{{ ansible_env.HOME }}/.zsh.after/completion.zsh"
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
