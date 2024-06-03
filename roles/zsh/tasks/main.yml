@@ -17,15 +17,6 @@
         name: "{{ ansible_user_id }}"
         shell: "{{ homebrew_prefix }}/bin/zsh"
 
-- name: Fix permissions for zsh
-  ansible.builtin.file:
-    path: "{{ item }}"
-    mode: "0755"
-  loop:
-    - "{{ homebrew_prefix }}/share"
-    - "{{ homebrew_prefix }}/share/zsh"
-    - "{{ homebrew_prefix }}/share/zsh/site-functions"
-
 - name: prezto
   block:
     - name: fetch prezto
@@ -113,3 +104,15 @@
         mode: "0644"
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
+
+- name: Fix permissions for zsh
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: "0755"
+  loop:
+    - "{{ homebrew_prefix }}/share"
+    - "{{ homebrew_prefix }}/share/zsh"
+    - "{{ homebrew_prefix }}/share/zsh/site-functions"
+    - /usr/local/share/zsh
+    - /usr/local/share/zsh/site-functions
+    - /usr/local/share/zsh/5.9/functions
