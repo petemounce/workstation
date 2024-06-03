@@ -10,10 +10,17 @@
         dest: /tmp/pyenv_installer.sh
         mode: "0755"
 
+    - name: set installation facts
+      stat:
+        path: "{{ ansible_env.HOME }}/.pyenv"
+        register: pyenv_exists
+
     - name: install
       command: bash -c /tmp/pyenv_installer.sh
+      when: pyenv_exists.stat.isdir is defined and not pyenv_exists.stat.isdir
       args:
         creates:
+          - "{{ ansible_env.HOME }}/.pyenv"
           - "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-doctor"
           - "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-update"
           - "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-virtualenv"
