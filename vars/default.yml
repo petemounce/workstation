@@ -94,7 +94,6 @@ vscode_extensions:
   - redhat.java
   - redhat.vscode-yaml
   - rubymaniac.vscode-direnv
-  - rupisaini.vscode-ansible-linter
   - ryu1kn.partial-diff
   - s3ramsay.vscode-gtm
   - shan.code-settings-sync
@@ -115,7 +114,6 @@ vscode_extensions:
   - tyriar.sort-lines
   - vscjava.vscode-java-debug
   - vscjava.vscode-java-pack
-  - vscoss.vscode-ansible
   - wayou.vscode-todo-highlight
   - wengerk.highlight-bad-chars
   - wholroyd.jinja
