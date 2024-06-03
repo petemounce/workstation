@@ -1,11 +1,8 @@
 ---
-- name: Check if pyenv-installer is installed
-  stat:
-    path: "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-installer"
-  register: pyenv_installer_dir
+- name: install python dependencies
+  include_tasks: python-ecosystem.{{ ansible_os_family }}.yml
 
 - name: install pyenv via installer
-  when: pyenv_installer_dir.stat.exists == false
   block:
     - name: fetch installer
       get_url:
@@ -16,7 +13,41 @@
     - name: install
       command: bash -c /tmp/pyenv_installer.sh
       args:
-        creates: "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-installer"
+        creates:
+          - "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-doctor"
+          - "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-update"
+          - "{{ ansible_env.HOME }}/.pyenv/plugins/pyenv-virtualenv"
+          - "{{ ansible_env.HOME }}/.pyenv/plugins/python-build"
 
-# - name: write zsh config
-#https://github.com/sorin-ionescu/prezto/tree/master/modules/python
+    - name: pyenv zsh config
+      copy:
+        src: python-pyenv.zsh
+        dest: "{{ ansible_env.HOME }}/.zsh.after/python-pyenv.zsh"
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+
+- name: pyenv update
+  command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv update"
+  environment:
+    PYENV_ROOT: "{{ ansible_env.HOME }}/.pyenv"
+  args:
+    creates: "{{ ansible_env.HOME }}/.pyenv/plugins/python-build/share/python-build/{{ lv }}"
+  loop: "{{ python_versions | flatten(levels=1) }}"
+  loop_control:
+    loop_var: lv
+
+- name: pyenv install our versions
+  command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv install {{ lv }}"
+  environment:
+    PYENV_ROOT: "{{ ansible_env.HOME }}/.pyenv"
+  args:
+    creates: "{{ ansible_env.HOME }}/.pyenv/versions/{{ lv }}"
+  loop: "{{ python_versions | flatten(levels=1) }}"
+  loop_control:
+    loop_var: lv
+
+- name: pyenv make global version  # noqa 301 does not create a file
+  command: "{{ ansible_env.HOME }}/.pyenv/bin/pyenv global {{ install_pyenv_python_global_version }}"
+  environment:
+    PYENV_ROOT: "{{ ansible_env.HOME }}/.pyenv"

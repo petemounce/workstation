@@ -1,0 +1,13 @@
+---
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems#prerequisites
+- name: install pyenv/python dependencies
+  homebrew:
+    name:
+      - openssl
+      - readline
+      - sqlite3
+      - xz
+      - zlib
+    state: present
+  become: true
+  become_user: brew
