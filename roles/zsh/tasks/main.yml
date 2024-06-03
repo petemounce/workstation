@@ -119,3 +119,6 @@
 
 - name: fzf
   import_tasks: fzf.yml
+
+- name: ag
+  import_tasks: ag.yml

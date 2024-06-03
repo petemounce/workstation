@@ -1,0 +1,13 @@
+---
+- name: install
+  include_tasks: silver-searcher-install.{{ ansible_os_family }}.yml
+
+- name: integrate with fzf
+  lineinfile:
+    line: export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+    path: "{{ lv.path }}"
+    create: true
+  loop:
+    - path: "{{ ansible_env.HOME }}/.zsh.after/fzf_silver_searcher.zsh"
+  loop_control:
+    loop_var: lv
