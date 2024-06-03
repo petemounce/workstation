@@ -59,7 +59,7 @@
         state: present
         user: "{{ ansible_user_id }}"
         runas: brew
-        commands: brew
+        commands: /opt/homebrew/bin/brew
       become: true
 
     - name: install homebrew
