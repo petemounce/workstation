@@ -1,6 +1,6 @@
 ---
 - name: install
-  include_tasks: silver-searcher-install.{{ ansible_os_family }}.yml
+  include_tasks: ag-install.{{ ansible_os_family }}.yml
 
 - name: integrate with fzf
   lineinfile:
