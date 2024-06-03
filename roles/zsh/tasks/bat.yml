@@ -1,0 +1,18 @@
+---
+# https://github.com/sharkdp/bat
+
+- name: install
+  include_tasks: bat-install.{{ ansible_os_family }}.yml
+
+# https://github.com/junegunn/fzf#preview-window
+- name: fzf preview with bat
+  lineinfile:
+    line: "{{ lv.line }}"
+    path: "{{ ansible_env.HOME }}/.aliases"
+    create: true
+  loop:
+    - line: alias fpb="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+    - line: alias bat=batcat
+    - line: alias cat='batcat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo "default" || echo "zenburn")'
+  loop_control:
+    loop_var: lv

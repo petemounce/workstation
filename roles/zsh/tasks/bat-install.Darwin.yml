@@ -1,0 +1,7 @@
+---
+- name: install bat
+  community.general.homebrew:
+    name:
+      - bat
+  become: true
+  become_user: brew
