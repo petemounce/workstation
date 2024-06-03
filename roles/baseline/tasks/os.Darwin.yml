@@ -61,7 +61,6 @@
 
 - name: finder
   block:
-
     - name: "Do not show Desktop (Icons)"
       community.general.osx_defaults:
         domain: com.apple.finder
@@ -74,7 +73,6 @@
         key: QuitMenuItem
         type: bool
         value: true
-
     - name: "Set home folder as the default location for new Finder windows pt1"
       community.general.osx_defaults:
         domain: com.apple.finder
@@ -87,7 +85,6 @@
         key: NewWindowTargetPath
         type: string
         value: "file://${HOME}/"
-
     - name: "Show icons for external hard drives on the desktop"
       community.general.osx_defaults:
         domain: com.apple.finder
@@ -112,70 +109,60 @@
         key: ShowRemovableMediaOnDesktop
         type: bool
         value: true
-
     - name: "Finder: show hidden files by default"
       community.general.osx_defaults:
         domain: com.apple.finder
         key: AppleShowAllFiles
         type: bool
         value: true
-
     - name: "Finder: show all filename extensions"
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: AppleShowAllExtensions
         type: bool
         value: true
-
     - name: "Finder: show status bar"
       community.general.osx_defaults:
         domain: com.apple.finder
         key: ShowStatusBar
         type: bool
         value: true
-
     - name: "Finder: allow text selection in Quick Look"
       community.general.osx_defaults:
         domain: com.apple.finder
         key: QLEnableTextSelection
         type: bool
         value: true
-
     - name: "Display full POSIX path as Finder window title"
       community.general.osx_defaults:
         domain: com.apple.finder
         key: _FXShowPosixPathInTitle
         type: bool
         value: true
-
     - name: "When performing a search, search the current folder by default"
       community.general.osx_defaults:
         domain: com.apple.finder
         key: FXDefaultSearchScope
         type: string
         value: "SCcf"
-
     - name: "Disable the warning when changing a file extension"
       community.general.osx_defaults:
         domain: com.apple.finder
         key: FXEnableExtensionChangeWarning
         type: bool
         value: false
-
     - name: "Enable spring loading for directories"
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: com.apple.springing.enabled
         type: bool
         value: true
-
     - name: "Remove the spring loading delay for directories"
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: com.apple.springing.delay
         type: float
         value: 0.1
-
     - name: "Avoid creating .DS_Store files on network volumes"
       community.general.osx_defaults:
         domain: com.apple.desktopservices
@@ -214,7 +201,6 @@
         key: SendDoNotTrackHTTPHeader
         type: bool
         value: true
-
     - name: 'Enable the Develop menu in Safari'
       community.general.osx_defaults:
         domain: com.apple.Safari
