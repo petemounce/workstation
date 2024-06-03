@@ -45,13 +45,21 @@
         password: "{{ baseline_brew_password }}"
       become: true
 
-    - name: allow current user to sudo as homebrew user
+    - name: allow brew user to passwordless sudo
+      community.general.sudoers:
+        name: allow-brew-passwordless-sudo
+        state: present
+        user: "brew"
+        commands: ALL
+      become: true
+
+    - name: allow current user to sudo as homebrew user and run brew
       community.general.sudoers:
         name: allow-{{ ansible_user_id }}-to-do-as-brew
         state: present
         user: "{{ ansible_user_id }}"
         runas: brew
-        commands: ALL
+        commands: brew
       become: true
 
     - name: install homebrew
