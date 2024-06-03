@@ -93,6 +93,13 @@
   become: true
   become_user: brew
 
+- name: Make newer bash default for root
+  ansible.builtin.user:
+    name: root
+    shell: "{{ homebrew_prefix }}/bin/bash"
+  become: true
+  tags: [root, shell]
+
 - name: install rosetta when M* so we can run x86_64 Intel binaries
   when: ansible_architecture == "arm64"
   command: >

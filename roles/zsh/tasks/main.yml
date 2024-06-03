@@ -2,6 +2,30 @@
 - name: install
   include_tasks: "zsh-install.{{ ansible_os_family }}.yml"
 
+- name: Configure shells
+  become: true
+  tags: shell
+  block:
+    - name: Make additional shells available
+      ansible.builtin.blockinfile:
+        path: /etc/shells
+        block: |
+          {{ homebrew_prefix }}/bin/bash
+          {{ homebrew_prefix }}/bin/zsh
+    - name: Make zsh default for user
+      ansible.builtin.user:
+        name: "{{ ansible_user_id }}"
+        shell: "{{ homebrew_prefix }}/bin/zsh"
+
+- name: Fix permissions for zsh
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: 0755
+  loop:
+    - "{{ homebrew_prefix }}/share"
+    - "{{ homebrew_prefix }}/share/zsh"
+    - "{{ homebrew_prefix }}/share/zsh/site-functions"
+
 - name: prezto
   block:
     - name: fetch prezto
