@@ -15,7 +15,7 @@
     - name: Make zsh default for user
       ansible.builtin.user:
         name: "{{ ansible_user_id }}"
-        shell: "{{ homebrew_prefix }}/bin/zsh"
+        shell: "/bin/zsh"
 
 - name: prezto
   block:
