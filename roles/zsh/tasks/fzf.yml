@@ -15,6 +15,14 @@
   script: "{{ ansible_env.HOME }}/.fzf/install --key-bindings --completion --no-update-rc"
   become_user: "{{ ansible_user_id }}"
 
+- name: fetch fzf-zsh-completions
+  git:
+    repo: 'https://github.com/chitoku-k/fzf-zsh-completions.git'
+    dest: "{{ ansible_env.HOME }}/.zprezto/module/fzf-zsh-completions"
+    depth: 1
+    version: HEAD
+  become_user: "{{ ansible_user_id }}"
+
 - name: make shell include
   template:
     src: fzf.j2

@@ -1,7 +1,11 @@
 ---
 - name: fzf brew
   community.general.homebrew:
+    # Install things to get their completions.
     name:
+      - awk
+      - docker # Just the client is fine.
       - fzf
+      - jq
   become: true
   become_user: brew
