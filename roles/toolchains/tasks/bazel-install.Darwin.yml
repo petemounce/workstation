@@ -1,0 +1,7 @@
+---
+- name: bazelisk brew
+  community.general.homebrew:
+    name:
+      - bazelisk
+  become: true
+  become_user: brew

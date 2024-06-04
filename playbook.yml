@@ -28,6 +28,8 @@
       tags: [shell]
     - role: vscode
       tags: [editor, vscode]
+    - role: toolchains
+      tags: [dev, toolchains]
 
   tasks:
     - import_tasks: "tasks/screensaver.yml"

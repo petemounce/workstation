@@ -1,0 +1,3 @@
+---
+- name: install
+  include_tasks: gcp-install.{{ ansible_os_family }}.yml

@@ -1,0 +1,12 @@
+---
+- name: github
+  import_tasks: github.yml
+
+- name: gcp
+  import_tasks: gcp.yml
+
+- name: aws
+  import_tasks: aws.yml
+
+- name: bazel
+  import_tasks: bazel.yml

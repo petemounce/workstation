@@ -1,0 +1,7 @@
+---
+- name: silver searcher brew
+  community.general.homebrew:
+    name:
+      - google-cloud-sdk
+  become: true
+  become_user: brew
