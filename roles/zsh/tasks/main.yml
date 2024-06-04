@@ -128,3 +128,6 @@
 
 - name: direnv
   import_tasks: direnv.yml
+
+- name: terminal
+  import_tasks: terminal.yml

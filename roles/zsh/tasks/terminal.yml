@@ -1,0 +1,2 @@
+- name: install
+  include_tasks: terminal-install.{{ ansible_os_family }}.yml
