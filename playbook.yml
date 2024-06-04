@@ -32,7 +32,5 @@
   tasks:
     - import_tasks: "tasks/screensaver.yml"
       tags: [screensaver]
-    - import_tasks: tasks/config-setup.yml
-      tags: [config]
     - import_tasks: tasks/python-ecosystem.yml
       tags: [python]
