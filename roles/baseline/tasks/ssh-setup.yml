@@ -25,3 +25,17 @@
     mode: "0600"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_gid }}"
+
+# TODO
+# - name: Create SSH key
+#   community.crypto.openssh_keypair:
+#     path: "{{ ansible_user_dir }}/.ssh/id_{{ item['key'] }}"
+#     passphrase: "{{ item['value'] }}"
+#     type: "{{ item['key'] }}"
+#     size: 4096
+#     comment: "{{ ansible_user_id }}@{{ ansible_hostname }}"
+#   loop:
+#     - {key: rsa, value: ''}
+#     - {key: ed25519, value: ''}
+#   loop_control:
+#     label: "{{ item['key'] }}"
