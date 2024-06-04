@@ -131,3 +131,15 @@
 
 - name: terminal
   import_tasks: terminal.yml
+
+- name: Refresh zcompdump
+  block:
+    - name: Delete zcompdump
+      ansible.builtin.file:
+        path: "{{ ansible_user_dir }}/.zcompdump"
+        state: absent
+    - name: Generate zcompdump
+      ansible.builtin.shell: autoload -Uz compinit && compinit
+      args:
+        executable: "/bin/zsh"
+        creates: "{{ ansible_user_dir }}/.zcompdump"

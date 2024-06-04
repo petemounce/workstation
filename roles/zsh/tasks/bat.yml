@@ -4,6 +4,10 @@
 - name: install
   include_tasks: bat-install.{{ ansible_os_family }}.yml
 
+- name: Install themes for bat
+  ansible.builtin.command: "bat cache --build"
+  changed_when: false
+
 # https://github.com/junegunn/fzf#preview-window
 - name: fzf preview with bat
   lineinfile:
