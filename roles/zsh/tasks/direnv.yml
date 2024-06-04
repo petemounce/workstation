@@ -2,6 +2,41 @@
 - name: install
   include_tasks: direnv-install.{{ ansible_os_family }}.yml
 
+- name: direnv config
+  block:
+    - name: config dir
+      file:
+        state: directory
+        path: "{{ ansible_env.HOME }}/.config/direnv"
+        mode: "0755"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+
+    - name: uv layout
+      ansible.builtin.blockinfile:
+        block: |
+          # https://github.com/direnv/direnv/wiki/Python#uv
+          layout_uv() {
+            if [[ -d ".venv" ]]; then
+              VIRTUAL_ENV="$(pwd)/.venv"
+            fi
+
+            if [[ -z "${VIRTUAL_ENV}" || ! -d "${VIRTUAL_ENV}" ]]; then
+              log_status "No virtual environment exists. Executing $(uv venv) to create one."
+              uv venv
+              VIRTUAL_ENV="$(pwd)/.venv"
+            fi
+
+            PATH_add "${VIRTUAL_ENV}/bin"
+            export UV_ACTIVE="1" # or VENV_ACTIVE=1
+            export VIRTUAL_ENV
+          }
+        path: "{{ ansible_env.HOME }}/.config/direnv/direnvrc"
+        create: true
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+
 - name: shell configuration
   lineinfile:
     line: eval "$(direnv hook zsh)"
