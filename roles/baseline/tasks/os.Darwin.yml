@@ -193,39 +193,39 @@
         type: float
         value: 0.15
 
-- name: safari / webkit
-  block:
-    # TODO
-    # - name: 'Enable Do Not Track'
-    #   community.general.osx_defaults:
-    #     domain: com.apple.Safari
-    #     key: SendDoNotTrackHTTPHeader
-    #     type: bool
-    #     value: true
-    # - name: 'Enable the Develop menu in Safari'
-    #   community.general.osx_defaults:
-    #     domain: com.apple.Safari
-    #     key: IncludeDevelopMenu
-    #     type: bool
-    #     value: true
-    # - name: 'Enable the Developer extras menu in Safari'
-    #   community.general.osx_defaults:
-    #     domain: com.apple.Safari
-    #     key: WebKitDeveloperExtrasEnabledPreferenceKey
-    #     type: bool
-    #     value: true
-    # - name: 'Enable the webkit2 Develop menu in Safari'
-    #   community.general.osx_defaults:
-    #     domain: com.apple.Safari
-    #     key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
-    #     type: bool
-    #     value: true
-    # - name: 'Add a context menu item for showing the Web Inspector in web views'
-    #   community.general.osx_defaults:
-    #     domain: NSGlobalDomain
-    #     key: WebKitDeveloperExtras
-    #     type: bool
-    #     value: true
+# TODO
+# - name: safari / webkit
+#   block:
+#     - name: 'Enable Do Not Track'
+#       community.general.osx_defaults:
+#         domain: com.apple.Safari
+#         key: SendDoNotTrackHTTPHeader
+#         type: bool
+#         value: true
+#     - name: 'Enable the Develop menu in Safari'
+#       community.general.osx_defaults:
+#         domain: com.apple.Safari
+#         key: IncludeDevelopMenu
+#         type: bool
+#         value: true
+#     - name: 'Enable the Developer extras menu in Safari'
+#       community.general.osx_defaults:
+#         domain: com.apple.Safari
+#         key: WebKitDeveloperExtrasEnabledPreferenceKey
+#         type: bool
+#         value: true
+#     - name: 'Enable the webkit2 Develop menu in Safari'
+#       community.general.osx_defaults:
+#         domain: com.apple.Safari
+#         key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+#         type: bool
+#         value: true
+#     - name: 'Add a context menu item for showing the Web Inspector in web views'
+#       community.general.osx_defaults:
+#         domain: NSGlobalDomain
+#         key: WebKitDeveloperExtras
+#         type: bool
+#         value: true
 
 - name: Unhide ~/Library
   ansible.builtin.command: "chflags nohidden {{ ansible_user_dir }}/Library"
