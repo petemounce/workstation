@@ -202,27 +202,43 @@
     #     key: SendDoNotTrackHTTPHeader
     #     type: bool
     #     value: true
-    - name: 'Enable the Develop menu in Safari'
-      community.general.osx_defaults:
-        domain: com.apple.Safari
-        key: IncludeDevelopMenu
-        type: bool
-        value: true
-    - name: 'Enable the Developer extras menu in Safari'
-      community.general.osx_defaults:
-        domain: com.apple.Safari
-        key: WebKitDeveloperExtrasEnabledPreferenceKey
-        type: bool
-        value: true
-    - name: 'Enable the webkit2 Develop menu in Safari'
-      community.general.osx_defaults:
-        domain: com.apple.Safari
-        key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
-        type: bool
-        value: true
-    - name: 'Add a context menu item for showing the Web Inspector in web views'
-      community.general.osx_defaults:
-        domain: NSGlobalDomain
-        key: WebKitDeveloperExtras
-        type: bool
-        value: true
+    # - name: 'Enable the Develop menu in Safari'
+    #   community.general.osx_defaults:
+    #     domain: com.apple.Safari
+    #     key: IncludeDevelopMenu
+    #     type: bool
+    #     value: true
+    # - name: 'Enable the Developer extras menu in Safari'
+    #   community.general.osx_defaults:
+    #     domain: com.apple.Safari
+    #     key: WebKitDeveloperExtrasEnabledPreferenceKey
+    #     type: bool
+    #     value: true
+    # - name: 'Enable the webkit2 Develop menu in Safari'
+    #   community.general.osx_defaults:
+    #     domain: com.apple.Safari
+    #     key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+    #     type: bool
+    #     value: true
+    # - name: 'Add a context menu item for showing the Web Inspector in web views'
+    #   community.general.osx_defaults:
+    #     domain: NSGlobalDomain
+    #     key: WebKitDeveloperExtras
+    #     type: bool
+    #     value: true
+
+- name: Unhide ~/Library
+  ansible.builtin.command: "chflags nohidden {{ ansible_user_dir }}/Library"
+  changed_when: false
+  tags: unhide_dirs
+
+- name: Remove extended attributes on ~/Library
+  ansible.builtin.command: "xattr -c {{ ansible_user_dir }}/Library"
+  changed_when: false
+  tags: unhide_dirs
+
+- name: Unhide /Volumes
+  ansible.builtin.command: chflags nohidden /Volumes
+  changed_when: false
+  become: true
+  tags: unhide_dirs
