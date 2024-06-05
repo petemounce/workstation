@@ -76,11 +76,6 @@
     src: preztorc.j2
     dest: "{{ ansible_env.HOME }}/.zpreztorc"
 
-- name: prompt
-  copy:
-    src: prompt.zsh
-    dest: "{{ ansible_env.HOME }}/.zsh.after/prompt.zsh"
-
 - name: aliases
   blockinfile:
     block: '[[ -r "${HOME}/.aliases" ]] && source "${HOME}/.aliases"'
