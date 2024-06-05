@@ -1,0 +1,16 @@
+---
+- name: software via brew
+  community.general.homebrew_cask:
+    name: "{{ lv.name }}"
+    state: "{{ lv.state | default('present') }}"
+  loop: "{{ apps['casks'] }}"
+  loop_control:
+    loop_var: lv
+  become: true
+  become_user: brew
+  register: cask_result
+  ignore_errors: true
+  failed_when:
+    # Because endpoint management might have already installed things and cannot be overwritten.
+    - cask_result.failed
+    - "'It seems there is already an App' not in cask_result.msg"
