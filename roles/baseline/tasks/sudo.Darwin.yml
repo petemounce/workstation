@@ -1,8 +1,8 @@
 ---
 # Do sudo using Touch ID
 - name: Set sudo via Touch ID if not setup
-  lineinfile:
-    line: 'auth       sufficient     pam_tid.so'
+  blockinfile:
+    block: 'auth       sufficient     pam_tid.so'
     path: "/etc/pam.d/sudo_local"
     owner: root
     group: "{{ root_group }}"

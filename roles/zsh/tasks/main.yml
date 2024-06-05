@@ -82,8 +82,8 @@
     dest: "{{ ansible_env.HOME }}/.zsh.after/prompt.zsh"
 
 - name: aliases
-  lineinfile:
-    line: '[[ -r "${HOME}/.aliases" ]] && source "${HOME}/.aliases"'
+  blockinfile:
+    block: '[[ -r "${HOME}/.aliases" ]] && source "${HOME}/.aliases"'
     path: "{{ ansible_env.HOME }}/.zsh.after/aliases.zsh"
     create: true
 

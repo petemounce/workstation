@@ -3,8 +3,8 @@
   include_tasks: ag-install.{{ ansible_os_family }}.yml
 
 - name: integrate with fzf
-  lineinfile:
-    line: export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+  blockinfile:
+    block: export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
     path: "{{ lv.path }}"
     create: true
   loop:

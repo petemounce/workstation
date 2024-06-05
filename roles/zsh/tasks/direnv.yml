@@ -38,8 +38,8 @@
         group: "{{ ansible_user_gid }}"
 
 - name: shell configuration
-  lineinfile:
-    line: eval "$(direnv hook zsh)"
+  blockinfile:
+    block: eval "$(direnv hook zsh)"
     path: "{{ lv.path }}"
     create: true
   loop:

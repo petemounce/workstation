@@ -80,8 +80,8 @@
         homebrew_group: admin
 
     - name: alias for brew usage to shell configs
-      lineinfile:
-        line: alias brew='sudo -Hu brew brew'
+      blockinfile:
+        block: alias brew='sudo -Hu brew brew'
         path: "{{ lv.path }}"
         create: true
       loop:
