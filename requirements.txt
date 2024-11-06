@@ -1,4 +1,4 @@
-ansible-core==2.15.11
+ansible-core==2.17.6
 ansible-lint==6.22.2
 github3.py==4.0.1
 pre-commit==3.7.1
