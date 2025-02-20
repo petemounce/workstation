@@ -10,3 +10,6 @@
 
 - name: bazel
   import_tasks: bazel.yml
+
+- name: kubernetes
+  import_tasks: kubernetes.yml
