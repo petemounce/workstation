@@ -7,4 +7,5 @@
     owner: root
     group: "{{ root_group }}"
     mode: "0644"
+    create: true
   become: true
