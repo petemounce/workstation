@@ -29,13 +29,13 @@
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: InitialKeyRepeat
-        type: int
+        type: float
         value: 20
     - name: Set a fast keyboard repeat rate
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: KeyRepeat
-        type: int
+        type: float
         value: 1
 
 - name: screen-capture
