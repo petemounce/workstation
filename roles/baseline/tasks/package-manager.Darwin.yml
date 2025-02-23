@@ -9,6 +9,7 @@
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
     - name: download XCode
+      # This requires authenticating, so in practice it's easier to arrange by hand via https://developer.apple.com/download/all/?q=xcode.
       get_url:
         # https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
         # Didn't need an Apple Developer account; just iCloud/Apple.
